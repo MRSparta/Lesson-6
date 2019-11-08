@@ -17,24 +17,25 @@ row = cursor.fetchone()
 print(row)
 
 #we can also Fecthc all rows
-#all_customer=cursor.execute ('SELECT * FROM Customers;').fetchall()
+all_customer=cursor.execute ('SELECT * FROM Customers;').fetchall()
 #Fetch all is dangerous as it can block our CPU with huge amount of data
+
 #print(all_customer)
 #print(type(all_customer))
-#for row in all_customer:
-  #do operation with data.
-  #print row.ContactName, row.Fax)
+
+# for row in all_customer:
+#   # do operation with data.
+#   print(row.ContactName, row.Fax)
+
 #Because this is dangerous we can use while loop to fecthone()
 #until record/ row is none --> break
-#all_products=cursor,execute('SELECT * FROM Products;')
+
+all_products = cursor.execute("SELECT * FROM Products;")
+
 #this is more efficient than fectchall()
-#while True:
-#row_record = all_products.fetchone()
-   #if row_record is None:
-   #break
-   #print(row_record.unitprice)
 
-
-
-# all_customers = cursor.excute("SELECT * FROM Customers;").fetchall()
-# Fetch
+while True:
+    row_record = all_products.fetchone()
+    if row_record is None:
+        break
+    print(row_record.UnitPrice)
